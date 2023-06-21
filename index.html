@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game 2D Droid</title>
+    <style>
+      /* Gaya CSS untuk mengatur tampilan game */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f1f1f1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #333;
+        text-align: right;
+        margin: 0;
+      }
+
+      canvas {
+        border: 2px solid #333;
+        background-color: #fff;
+        margin: 0 auto;
+      }
+
+      .button-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin-left: 20px;
+      }
+
+      .button-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-bottom: 10px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .button-container button:hover {
+        background-color: #45a049;
+      }
+
+      .button-container button:active {
+        box-shadow: none;
+      }
+
+      #notification {
+        background-color: #f1f1f1;
+        border: 2px solid #333;
+        padding: 10px;
+        margin-top: 10px;
+        margin-left: 50px;
+        position: absolute;
+        top: 170px;
+        left: 10px;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none; /* Properti standar appearance */
+        width: 100%;
+        height: 8px;
+        background-color: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+        border-radius: 5px;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #4caf50;
+        cursor: pointer;
+        transform: translateX(
+          -50%
+        ); /* Mengatur posisi awal bulatan slider ke kiri */
+      }
+
+      input[type="range"]:focus {
+        opacity: 1;
+      }
+
+      input[type="range"]::-webkit-slider-thumb:hover,
+      input[type="range"]::-moz-range-thumb:hover {
+        background: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Permainan Sembunyi dan Cari</h1>
+
+    <canvas id="canvas" width="800" height="600"></canvas>
+
+    <div class="button-container">
+      <button id="playButton">Mainkan</button>
+      <button id="pauseButton">Jeda</button>
+      <button id="randomMapButton">Acak Peta</button>
+      <button id="randomDroidButton">Acak Posisi Droid</button>
+      <button id="addDroidRed">Tambah Droid Merah</button>
+      <button id="povDroidRed">Pandangan Droid Merah</button>
+      <button id="povDroidGreen">Pandangan Droid Hijau</button>
+      <input
+        type="range"
+        id="povRangeSlider"
+        min="1"
+        max="5"
+        value="1"
+        step="1"
+      />
+      <label for="povRangeSlider">Jarak Pandang Droid Hijau</label>
+    </div>
+
+    <div id="notification"></div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
